@@ -1,0 +1,39 @@
+<form class="form-horizontal" id="settings_plugin_mqttsmartplug">
+
+<p>This plugin is an extension to the MQTT plugin for OctoPrint.<br/>Please install and configure the MQTT plugin first.</p>
+
+	<h3>Topics and Messages</h3>
+
+	<div class="control-group">
+		<label class="control-label">Control Topic</label>
+		<div class="controls">
+			<input type="text" class="input-large" id="settings_plugin_mqttsmartplug_publish" data-bind="value: settings.plugins.mqttsmartplug.publish">
+			<span class="help-block">Send a message to this topic to toggle the smart plug.</span>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label">Status Topic</label>
+		<div class="controls">
+			<input type="text" class="input-large" id="settings_plugin_mqttsmartplug_subscription" data-bind="value: settings.plugins.mqttsmartplug.subscription">
+			<span class="help-block">Subscribe to this topic to receive state changes of the smart plug.<br/>Messages have to be "retained" on the broker.</span>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label">Control Message ON</label>
+		<div class="controls">
+			<input type="text" class="input-large" id="settings_plugin_mqttsmartplug_msgon" data-bind="value: settings.plugins.mqttsmartplug.msgon">
+			<span class="help-block">Send this message to the control topic to turn the plug on.<br/>This message is also expected on the status topic when the plug is on.</span>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<label class="control-label">Control Message OFF</label>
+		<div class="controls">
+			<input type="text" class="input-large" id="settings_plugin_mqttsmartplug_msgoff" data-bind="value: settings.plugins.mqttsmartplug.msgoff">
+			<span class="help-block">Send this message to the control topic to turn the plug off.<br/>This message is also expected on the status topic when the plug is off.</span>
+		</div>
+	</div>    
+	
+</form>
