@@ -5,13 +5,16 @@ $(function() {
         self.settings = parameters[0];
 
         self.currentState = ko.observable("unknown");
+        self.loginState = parameters[1];
         self.plug_indicator = undefined;
         self.poweroff_dialog = undefined;
 
         self.onAfterBinding = function() {
             self.plug_indicator = $("#plugcontrol_indicator");
             self.plug_indicator.css('color', '#808080');
-            self.getPlugState();
+            if (self.loginState.isUser()) {
+                self.getPlugState();                
+            }
             self.poweroff_dialog = $("#plug_poweroff_confirmation_dialog");
         };
 

@@ -2,6 +2,7 @@
 from __future__ import absolute_import
 
 import octoprint.plugin
+from octoprint.server import user_permission
 
 class MqttsmartplugPlugin(octoprint.plugin.StartupPlugin,
                           octoprint.plugin.SettingsPlugin,

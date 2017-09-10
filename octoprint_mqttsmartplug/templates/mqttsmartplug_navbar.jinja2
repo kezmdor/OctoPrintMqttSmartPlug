@@ -1,4 +1,4 @@
-<a id="plugcontrol_indicator" title="Smartplug" class="pull-right" href="#" data-bind="click: function() { $root.togglePlug(); }">
+<a id="plugcontrol_indicator" class="pull-right" title="Smartplug" href="#" data-bind="click: function() { loginState.isUser() && $root.togglePlug(); }">
     <i class="icon-bolt"></i>
 </a>
 <div id="plug_poweroff_confirmation_dialog" class="modal hide fade">
@@ -13,6 +13,6 @@
     </div>
     <div class="modal-footer">
         <a href="#" class="btn" data-dismiss="modal" aria-hidden="true">{{ _('Cancel') }}</a>
-        <a href="#" class="btn btn-danger" data-bind="click: function() { $root.turnPlugOff(); }">{{ _('Proceed') }}</a>
+        <a href="#" class="btn btn-danger" data-bind="click: function() { loginState.isUser() && $root.turnPlugOff(); }">{{ _('Proceed') }}</a>
     </div>
 </div>
