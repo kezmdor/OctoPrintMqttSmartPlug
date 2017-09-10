@@ -10,9 +10,7 @@ $(function() {
         self.onAfterBinding = function() {
             self.plug_indicator = $("#plugcontrol_indicator");
             self.plug_indicator.css('color', '#808080');
-            if (self.loginState.isUser()) {
-                self.getPlugState();                
-            }
+            self.getPlugState();                
             self.poweroff_dialog = $("#plug_poweroff_confirmation_dialog");
         };
 
