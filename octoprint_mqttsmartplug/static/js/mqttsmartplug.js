@@ -2,10 +2,8 @@ $(function() {
     function MqttsmartplugViewModel(parameters) {
         var self = this;
 
-        self.settings = parameters[0];
-
-        self.currentState = ko.observable("unknown");
         self.loginState = parameters[1];
+        self.currentState = ko.observable(undefined);
         self.plug_indicator = undefined;
         self.poweroff_dialog = undefined;
 
@@ -26,7 +24,7 @@ $(function() {
 			switch(self.currentState()) {
 				case "on":
                     self.plug_indicator.css('color', '#00E000');
-                break;
+                    break;
 				case "off":
                     self.plug_indicator.css('color', '#E00000');
 					break;
@@ -78,22 +76,14 @@ $(function() {
                 contentType: "application/json; charset=UTF-8"
             })
             self.poweroff_dialog.modal("hide");            
-        }
+        };
 
     }
 
-    // This is how our plugin registers itself with the application, by adding some configuration
-    // information to the global variable OCTOPRINT_VIEWMODELS
-    OCTOPRINT_VIEWMODELS.push([
-        // This is the constructor to call for instantiating the plugin
+
+    ADDITIONAL_VIEWMODELS.push([
         MqttsmartplugViewModel,
-
-        // This is a list of dependencies to inject into the plugin, the order which you request
-        // here is the order in which the dependencies will be injected into your view model upon
-        // instantiation via the parameters argument
-        ["settingsViewModel"],
-
-        // Finally, this is the list of selectors for all elements we want this view model to be bound to.
+        ["settingsViewModel", "loginStateViewModel"],
         ["#navbar_plugin_mqttsmartplug"]
     ]);
 });
